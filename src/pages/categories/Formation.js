@@ -20,7 +20,7 @@ function Formation({user}) {
   };
 
   const handleLoginClick = () => {
-    // Redirection vers la page login
+    
     window.location.href = '/login';
   };
 
