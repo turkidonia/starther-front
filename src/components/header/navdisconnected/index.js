@@ -16,7 +16,8 @@ function Navbar({ currentUser }) {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) setMenuOpen(false);
+      if (menuRef.current && !menuRef.current.contains(event.target))
+        setMenuOpen(false);
       if (servicesRef.current && !servicesRef.current.contains(event.target))
         setServicesOpen(false);
     };
@@ -52,7 +53,9 @@ function Navbar({ currentUser }) {
             <li className="nav-item">
               <NavLink
                 to="/"
-                className={({ isActive }) => (isActive ? 'nav-link active-link' : 'nav-link')}
+                className={({ isActive }) =>
+                  isActive ? 'nav-link active-link' : 'nav-link'
+                }
               >
                 Accueil
               </NavLink>
@@ -60,7 +63,9 @@ function Navbar({ currentUser }) {
             <li className="nav-item">
               <NavLink
                 to="/mentorat"
-                className={({ isActive }) => (isActive ? 'nav-link active-link' : 'nav-link')}
+                className={({ isActive }) =>
+                  isActive ? 'nav-link active-link' : 'nav-link'
+                }
               >
                 Mentorat
               </NavLink>
@@ -81,7 +86,9 @@ function Navbar({ currentUser }) {
                 Nos services
               </button>
 
-              <ul className={`dropdown-menu dropdown-menu-dark ${servicesOpen ? 'show' : ''}`}>
+              <ul
+                className={`dropdown-menu dropdown-menu-dark ${servicesOpen ? 'show' : ''}`}
+              >
                 <li>
                   <NavLink
                     to="/formation"
@@ -133,15 +140,26 @@ function Navbar({ currentUser }) {
           <div className="ms-lg-3" ref={menuRef}>
             <button type="button" className="btn-user" onClick={toggleMenu}>
               <FaUser className="icon-user" />
-              <FiChevronDown className={`icon-chevron ${menuOpen ? 'rotate' : ''}`} />
+              <FiChevronDown
+                className={`icon-chevron ${menuOpen ? 'rotate' : ''}`}
+              />
             </button>
-            <ul className={`dropdown-menu dropdown-menu-end ${menuOpen ? 'show' : ''}`}>
+            <ul
+              className={`dropdown-menu dropdown-menu-end ${menuOpen ? 'show' : ''}`}
+            >
               {currentUser ? (
-                <li>
-                  <NavLink to="/login" className="dropdown-item">
-                    Me déconnecter
-                  </NavLink>
-                </li>
+                <>
+                  <li>
+                    <NavLink to="/espace" className="dropdown-item">
+                      Mon espace
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/login" className="dropdown-item">
+                      Me déconnecter
+                    </NavLink>
+                  </li>
+                </>
               ) : (
                 <>
                   <li>
