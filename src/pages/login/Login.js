@@ -12,8 +12,7 @@ function Login({ setCurrentUser }) {
 
   useEffect(() => {
     setCurrentUser(null);
-   }, [setCurrentUser]
-  );
+  }, [setCurrentUser]);
 
   const navigate = useNavigate(); // pour la redirection
 

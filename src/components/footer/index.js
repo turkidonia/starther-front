@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import logo from '../../assets/image.png';
 import SAP from '../../assets/logo3.png';
 import desCodeuses from '../../assets/logo1.png';
@@ -77,13 +78,13 @@ function Footer() {
             <h4 className="footer-subtitle">Liens Utiles</h4>
             <ul className="list-unstyled">
               <li>
-                <a href="/confidentialite">Politique de confidentialité</a>
+                <NavLink to="/confidentialite">Politique de confidentialité</NavLink>
               </li>
               <li>
-                <a href="/conditions">Conditions d&apos;utilisation</a>
+                <NavLink to="/conditions">Conditions d&apos;utilisation</NavLink>
               </li>
               <li>
-                <a href="/contact">Contact</a>
+                <NavLink to="/contact">Contact</NavLink>
               </li>
             </ul>
           </div>

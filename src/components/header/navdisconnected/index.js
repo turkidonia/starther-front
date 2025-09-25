@@ -136,24 +136,26 @@ function Navbar({ currentUser }) {
               <FiChevronDown className={`icon-chevron ${menuOpen ? 'rotate' : ''}`} />
             </button>
             <ul className={`dropdown-menu dropdown-menu-end ${menuOpen ? 'show' : ''}`}>
-              { currentUser
-              ? <li>
-                <NavLink to="/login" className="dropdown-item">
-                  Me déconnecter
-                </NavLink>
-              </li>
-              : <>
-              <li>
-                <NavLink to="/login" className="dropdown-item">
-                  Connexion
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/register" className="dropdown-item">
-                  Inscription
-                </NavLink>
-              </li> 
-              </>}
+              {currentUser ? (
+                <li>
+                  <NavLink to="/login" className="dropdown-item">
+                    Me déconnecter
+                  </NavLink>
+                </li>
+              ) : (
+                <>
+                  <li>
+                    <NavLink to="/login" className="dropdown-item">
+                      Connexion
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/register" className="dropdown-item">
+                      Inscription
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>
