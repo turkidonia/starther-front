@@ -13,7 +13,6 @@ function EspaceAdmin({ user }) {
       <ul className="espace-list">
         <li>👥 Gérer les utilisateurs (mentorées, mentors, admins)</li>
         <li>🎬 Ajouter / modifier des vidéos de formation</li>
-        <li>📊 Consulter les statistiques d’utilisation</li>
         <li>🛠 Assurer la modération des contenus</li>
       </ul>
     </div>

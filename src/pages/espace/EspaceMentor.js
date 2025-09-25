@@ -13,34 +13,26 @@ function VideoCreateForm() {
   const services = [
     {
       id: 1,
-      name: "Formation"
+      name: 'Formation'
     },
     {
       id: 2,
-      name: "Reconversion"
+      name: 'Reconversion'
     },
     {
       id: 3,
-      name: "Orientation"
+      name: 'Orientation'
     },
     {
       id: 4,
-      name: "Insertion Professionnelle"
+      name: 'Insertion Professionnelle'
     }
   ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (
-      !title ||
-      !url ||
-      !description ||
-      !duration ||
-      !author ||
-      !publisher ||
-      !serviceId
-    ) {
+    if (!title || !url || !description || !duration || !author || !publisher || !serviceId) {
       setError('Tous les champs sont obligatoires');
       setSuccess('');
       return;
@@ -65,7 +57,7 @@ function VideoCreateForm() {
         if (!res.ok) throw new Error('Erreur lors de la création de la vidéo');
         return res.json();
       })
-      .then((data) => {
+      .then(() => {
         setSuccess('Vidéo créée avec succès !');
         setError('');
         setTitle('');
@@ -144,11 +136,7 @@ function VideoCreateForm() {
 
       <div>
         <label htmlFor="service">Service :</label>
-        <select
-          value={serviceId}
-          onChange={(e) => setServiceId(e.target.value)}
-          required
-        >
+        <select value={serviceId} onChange={(e) => setServiceId(e.target.value)} required>
           <option value="">--Choisir un service--</option>
           {services.map((s) => (
             <option key={s.id} value={s.id}>
