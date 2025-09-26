@@ -42,7 +42,7 @@ function Insertion({ user }) {
       .catch((err) => {
         setError(err.message);
       });
-  }, []); // exécution une seule fois au montage
+  }, []); // exécution une seule fois au montage  pour eviter la boucle infinie dans le back
 
   const handleVideoClick = (video) => {
     if (!user) {
