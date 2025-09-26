@@ -20,6 +20,7 @@ import EspaceMentoree from './pages/espace/EspaceMentoree';
 import EspaceMentor from './pages/espace/EspaceMentor';
 import EspaceAdmin from './pages/espace/EspaceAdmin';
 import CookieConsent from './components/cookies/CookieConsent';
+import VideoAdmin from './pages/admin/VideoAdmin';
 
 function RoutesConfig({ currentUser, setCurrentUser }) {
   // fonction qui retourne l’espace en fonction de l’utilisateur connecté
@@ -53,6 +54,9 @@ function RoutesConfig({ currentUser, setCurrentUser }) {
 
         {/* Espaces privés */}
         <Route path="/espace" element={getUserSpace()} />
+
+        {/* Espace Admin*/}
+        <Route path="/admin-videos" element={<VideoAdmin />} />
 
         {/* Erreur */}
         <Route path="*" element={<Error404 />} />
