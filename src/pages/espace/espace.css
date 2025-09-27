@@ -165,3 +165,64 @@ form p.success {
     margin: 1rem;
   }
 }
+.mentor-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.mentor-profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.mentor-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.mentor-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #FF7E33; /* rose START HER */
+}
+
+.mentor-name {
+  font-size: 1.8rem;
+  margin: 0;
+  color: #333;
+}
+
+.mentor-bio {
+  font-size: 1rem;
+  color: #555;
+}
+
+.btn-primary {
+  background: #FF7E33;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #FFD8C2;
+}
+
+.mentor-form {
+  margin-top: 30px;
+  text-align: left;
+}
+

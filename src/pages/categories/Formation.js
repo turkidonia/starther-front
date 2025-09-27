@@ -5,6 +5,7 @@ function Formation({ user }) {
   const [message, setMessage] = useState('');
   const [videos, setVideos] = useState([]);
   const [error, setError] = useState('');
+
   const videoSample = [
     {
       id: 1,
@@ -17,6 +18,7 @@ function Formation({ user }) {
       url: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
     }
   ];
+  
   useEffect(() => {
     fetch('http://localhost:8081/public/v1/videos/?service=formation')
       .then((res) => {
