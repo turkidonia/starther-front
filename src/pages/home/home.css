@@ -1,6 +1,6 @@
 /* === Fond global du site === */
 body {
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   margin: 0;
   font-family: 'Raleway', sans-serif;
 }
@@ -10,7 +10,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 4rem 2rem;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   gap: 2rem;
   flex-wrap: wrap;
 }
@@ -37,8 +37,8 @@ body {
 }
 
 .btn-hero {
-  background-color: #FF7E33;
-  color: #FFFFFF;
+  background-color: #ff7e33;
+  color: #ffffff;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 1.5rem;
@@ -52,12 +52,11 @@ body {
 }
 
 .btn-hero:hover {
-  background-color: #FFD8C2;
+  background-color: #ffd8c2;
   color: #000000;
   transform: scale(1.1) translateY(-2px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
-
 
 .hero-right {
   flex: 1;
@@ -67,13 +66,13 @@ body {
 .hero-right video {
   width: 100%;
   border-radius: 1rem;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Section principale - Témoignages */
 .temoignages {
   padding: 4rem 1rem;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   text-align: center;
   margin-bottom: 4rem;
 }
@@ -90,10 +89,10 @@ body {
 .temoignage-bloc {
   max-width: 900px;
   margin: 3rem auto;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 1rem;
   padding: 2.5rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -136,9 +135,9 @@ body {
 }
 
 /* Bouton Contactez-nous */
-.btn-contact { 
-  background-color: #FF7E33;
-  color: #FFFFFF;
+.btn-contact {
+  background-color: #ff7e33;
+  color: #ffffff;
   padding: 0.75rem 1.5rem;
   border-radius: 50px;
   font-family: 'Raleway', sans-serif;
@@ -149,7 +148,7 @@ body {
 }
 
 .btn-contact:hover {
-  background-color: #FFD8C2;
+  background-color: #ffd8c2;
   color: #000000;
   font-size: 1.2em;
   transform: scale(1.1) translateY(-2px);
@@ -160,7 +159,7 @@ body {
 .partenaires {
   padding: 4rem 1rem;
   text-align: center;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   margin-top: 4rem;
   margin-bottom: 2rem;
 }
@@ -210,7 +209,19 @@ body {
 
 /* Mobiles */
 @media (max-width: 640px) {
-  .temoignages, .partenaires {
+  .contact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* <-- centre horizontalement tous les enfants */
+  }
+
+  .btn-contact {
+    margin-top: 1.5rem;
+    margin-left: 130px;
+  }
+
+  .temoignages,
+  .partenaires {
     padding: 2rem 1rem;
   }
 
@@ -255,4 +266,3 @@ body {
     transform: translateY(0);
   }
 }
-

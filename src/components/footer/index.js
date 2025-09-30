@@ -78,13 +78,19 @@ function Footer() {
             <h4 className="footer-subtitle">Liens Utiles</h4>
             <ul className="list-unstyled">
               <li>
-                <NavLink to="/confidentialite">Politique de confidentialité</NavLink>
+                <NavLink to="/confidentialite" target="_blank">
+                  Politique de confidentialité
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/conditions">Conditions d&apos;utilisation</NavLink>
+                <NavLink to="/conditions" target="_blank">
+                  Conditions d&apos;utilisation
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/contact">Contact</NavLink>
+                <NavLink to="/contact" target="_blank">
+                  Contact
+                </NavLink>
               </li>
             </ul>
           </div>

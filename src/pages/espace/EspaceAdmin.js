@@ -21,7 +21,9 @@ function EspaceAdmin({ user }) {
         <li>👥 Gérer les utilisateurs (mentorées, mentors, admins)</li>
         <li>
           🎬 Ajouter / modifier des vidéos de formation{' '}
-          <button onClick={goToVideoAdmin}>➡️ Gérer les vidéos</button>
+          <button type="button" onClick={goToVideoAdmin}>
+            ➡️ Gérer les vidéos
+          </button>
         </li>
         <li>🛠 Assurer la modération des contenus</li>
       </ul>
@@ -30,4 +32,3 @@ function EspaceAdmin({ user }) {
 }
 
 export default EspaceAdmin;
-

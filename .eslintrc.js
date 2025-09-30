@@ -2,16 +2,16 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true,
+    node: true
   },
   parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 13,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
-    requireConfigFile: false,
+    requireConfigFile: false
   },
   plugins: ['react', 'react-hooks', 'jsx-a11y', 'prettier'],
   extends: [
@@ -23,8 +23,8 @@ module.exports = {
   ],
   settings: {
     react: {
-      version: 'detect',
-    },
+      version: 'detect'
+    }
   },
   rules: {
     'no-console': 'off',
@@ -34,6 +34,7 @@ module.exports = {
     'no-shadow': 0,
     'spaced-comment': 'off',
     'linebreak-style': 0,
+    'no-alert': 'off',
 
     // Prettier comme règle ESLint
     'prettier/prettier': [
@@ -45,18 +46,21 @@ module.exports = {
         printWidth: 100,
         tabWidth: 2,
         endOfLine: 'auto',
-        jsxSingleQuote: false,
-      },
+        jsxSingleQuote: false
+      }
     ],
 
     // JSX autorisé dans les fichiers .js et .jsx
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
 
     // Assouplissement des labels
-    'jsx-a11y/label-has-associated-control': [2, {
-      required: {
-        some: ['nesting', 'id']
+    'jsx-a11y/label-has-associated-control': [
+      2,
+      {
+        required: {
+          some: ['nesting', 'id']
+        }
       }
-    }],
-  },
+    ]
+  }
 };

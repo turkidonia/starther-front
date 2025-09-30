@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function VideoCreateForm({user}) {
+function VideoCreateForm({ user }) {
   const [title, setTitle] = useState('');
   const [url, setUrl] = useState('');
   const [description, setDescription] = useState('');
@@ -80,7 +80,6 @@ function VideoCreateForm({user}) {
       <h2>Créer une vidéo</h2>
       {error && <p className="error">{error}</p>}
       {success && <p className="success">{success}</p>}
-    
       <div>
         <label htmlFor="titre">Titre :</label>
         <input

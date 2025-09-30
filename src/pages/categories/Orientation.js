@@ -7,38 +7,53 @@ function Orientation({ user }) {
   const [error, setError] = useState('');
 
   const videoSample = [
-    { id: 1, url: 'https://www.youtube.com/embed/2LhoCfjm8R4', title: 'Orientation 1' },
-    { id: 2, url: 'https://www.youtube.com/embed/fC9da6eqaqg', title: 'Orientation 2' },
-    { id: 3, url: 'https://www.youtube.com/embed/mgmVOuLgFB0', title: 'Orientation 3' },
-    { id: 4, url: 'https://www.youtube.com/embed/Eq7Xkvd4s0o', title: 'Orientation 4' }
+    {
+      id: 1,
+      url: 'https://www.youtube.com/embed/2LhoCfjm8R4',
+      title: 'Orientation 1'
+    },
+    {
+      id: 2,
+      url: 'https://www.youtube.com/embed/fC9da6eqaqg',
+      title: 'Orientation 2'
+    },
+    {
+      id: 3,
+      url: 'https://www.youtube.com/embed/mgmVOuLgFB0',
+      title: 'Orientation 3'
+    },
+    {
+      id: 4,
+      url: 'https://www.youtube.com/embed/MrEDIr4Qrwk?si=wQ1npwCyZp06KnKx',
+      title: 'Orientation 4'
+    }
   ];
 
   useEffect(() => {
-      fetch('http://localhost:8081/public/v1/videos/?service=orientation')
-        .then((res) => {
-          if (!res.ok) throw new Error('Erreur lors de la récupération des vidéos');
-          return res.json();
-        })
-        .then((data) => {
-          setVideos(data);
-        })
-        .catch((err) => {
-          setError(err.message);
-        });
-    }), [];
-  
-    const handleVideoClick = (video) => {
-      if (!user) {
-        setMessage('Vous devez créer un compte ou vous connecter pour accéder à cette vidéo.');
-        return;
-      }
-      window.open(video.url, '_blank');
-    };
-  
-    const handleLoginClick = () => {
-      window.location.href = '/login';
-    };
-  
+    fetch('http://localhost:8081/public/v1/videos/?service=orientation')
+      .then((res) => {
+        if (!res.ok) throw new Error('Erreur lors de la récupération des vidéos');
+        return res.json();
+      })
+      .then((data) => {
+        setVideos(data);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
+  }, []);
+
+  const handleVideoClick = (video) => {
+    if (!user) {
+      setMessage('Vous devez créer un compte ou vous connecter pour accéder à cette vidéo.');
+      return;
+    }
+    window.open(video.url, '_blank');
+  };
+
+  const handleLoginClick = () => {
+    window.location.href = '/login';
+  };
 
   return (
     <div className="page-container">
@@ -116,15 +131,11 @@ function Orientation({ user }) {
           ))}
         </div>
       )}
-     
+
       {/* Bouton connexion visible seulement si non connecté */}
       {!user && (
         <div className="login-button-container">
-          <button
-            type="button"
-            className="login-button"
-            onClick={handleLoginClick}
-          >
+          <button type="button" className="login-button" onClick={handleLoginClick}>
             Se connecter
           </button>
         </div>

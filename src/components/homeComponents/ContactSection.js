@@ -31,11 +31,13 @@ function ContactSection() {
             <p className="stat-text">sur MonCompteFormation.gouv.fr</p>
           </div>
         </div>
-        <Link to="/contact">
-          <button type="button" className="btn-contact">
-            Contactez-nous
-          </button>
-        </Link>
+        <div className="contact-button-wrapper">
+          <Link to="/contact">
+            <button type="button" className="btn-contact">
+              Contactez-nous
+            </button>
+          </Link>
+        </div>
       </div>
     </section>
   );
