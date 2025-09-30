@@ -64,7 +64,7 @@
 
 /* Form card */
 form {
-  background: linear-gradient(145deg, #f0f4ff, #e0e6ff);
+  background-color: var(--bs-light);
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
@@ -114,8 +114,8 @@ form select {
 form input:focus,
 form textarea:focus,
 form select:focus {
-  border-color: #4b2cb0;
-  box-shadow: 0 0 8px rgba(75, 44, 176, 0.3);
+  border-color: #FF7E33;
+  box-shadow: 0 0 8px rgba(var(--bs-secondary-rgb), 0.3);
   outline: none;
 }
 
@@ -139,7 +139,8 @@ form button {
 }
 
 form button:hover {
-  background: #3a1d8f;
+  color: #000;
+  background: #FFD8C2;
   transform: scale(1.02);
 }
 

@@ -9,16 +9,26 @@ function Formation({ user }) {
   const videoSample = [
     {
       id: 1,
-      title: 'Vidéo 1',
-      url: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+      title: 'Fomration 1',
+      url: 'https://www.youtube.com/embed/LKgH-am4Xac?si=CgonShYscPAWKjMw'
     },
     {
       id: 2,
-      title: 'Vidéo 2',
-      url: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+      title: 'Fomration 2',
+      url: 'https://www.youtube.com/embed/hhe6Xb4Em5U?si=mvFCO4xy8NOkPcyC'
+    },
+    {
+      id: 3,
+      title: 'Fomration 3',
+      url: 'https://www.youtube.com/embed/EfIed-cFms4?si=hFA7k3JFCCtk_IiD'
+    },
+    {
+      id: 4,
+      title: 'Fomration 4',
+      url: 'https://www.youtube.com/embed/lgPtcrMp828?si=kO_VOpVGnK0-V759'
     }
   ];
-  
+
   useEffect(() => {
     fetch('http://localhost:8081/public/v1/videos/?service=formation')
       .then((res) => {

@@ -85,20 +85,20 @@
 
 .radio-group input[type="radio"]:checked + label {
   background-color: #FF7E33;
-  color: #F4F4F4;
+  color: #FFD8C2;
   box-shadow: 0 4px 10px rgba(255, 126, 51, 0.3);
 }
 
 .radio-group label:hover {
   background-color: #FF9C59;
-  color: #F4F4F4;
+  color: #FFD8C2;
 }
 /* Bouton inscription */
 .btn-login {
   width: 100%;
   padding: 14px;
   background-color: #FF7E33; /* orange vif */
-  color: #F4F4F4; /* texte clair */
+  color: #FFD8C2; /* texte clair */
   font-weight: bold;
   border: none;
   border-radius: 12px;
@@ -217,7 +217,7 @@
 .btn-contact {
   padding: 14px 28px;
   background-color: #FF7E33;
-  color: #F4F4F4;
+  color: #FFD8C2;
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
   font-size: 16px;

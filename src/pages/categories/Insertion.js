@@ -20,20 +20,19 @@ function Insertion({ user }) {
     {
       id: 3,
       title: 'Insertion 3',
-      url: 'https://www.youtube.com/embed/MY0UBGX2FtA'
+      url: 'https://www.youtube.com/embed/l3of0oOtpas?si=ZMW-eh0733Xmmb50'
     },
     {
       id: 4,
       title: 'Insertion 4',
-      url: 'https://www.youtube.com/embed/Jj7HxoJ8b6U'
+      url: 'https://www.youtube.com/embed/MLDU8qI2USc?si=iZSUxtXaWceYNGuO'
     }
   ];
 
   useEffect(() => {
     fetch('http://localhost:8081/public/v1/videos/?service=Insertion-professionnelle')
       .then((res) => {
-        if (!res.ok)
-          throw new Error('Erreur lors de la récupération des vidéos');
+        if (!res.ok) throw new Error('Erreur lors de la récupération des vidéos');
         return res.json();
       })
       .then((data) => {
@@ -46,9 +45,7 @@ function Insertion({ user }) {
 
   const handleVideoClick = (video) => {
     if (!user) {
-      setMessage(
-        'Vous devez créer un compte ou vous connecter pour accéder à cette vidéo.'
-      );
+      setMessage('Vous devez créer un compte ou vous connecter pour accéder à cette vidéo.');
       return;
     }
     window.open(video.url, '_blank');
@@ -62,9 +59,8 @@ function Insertion({ user }) {
     <div className="page-container">
       <h1 className="page-title">Insertion professionnelle</h1>
       <p className="page-description">
-        Nos vidéos sur l’insertion professionnelle vous guident pour intégrer
-        efficacement le marché du travail après une formation ou une
-        reconversion.
+        Nos vidéos sur l’insertion professionnelle vous guident pour intégrer efficacement le marché
+        du travail après une formation ou une reconversion.
       </p>
       <p>{error}</p>
 
@@ -138,11 +134,7 @@ function Insertion({ user }) {
       {/* Bouton connexion visible seulement si non connecté */}
       {!user && (
         <div className="login-button-container">
-          <button
-            type="button"
-            className="login-button"
-            onClick={handleLoginClick}
-          >
+          <button type="button" className="login-button" onClick={handleLoginClick}>
             Se connecter
           </button>
         </div>
