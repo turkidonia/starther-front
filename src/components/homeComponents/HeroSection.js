@@ -18,7 +18,7 @@ function HeroSection() {
             className={`col-lg-6 hero-left mb-4 mb-lg-0 text-center text-lg-start ${animate ? 'fade-in' : ''}`}
           >
             <h1 className="display-4 fw-bold mb-3">La mission de START HER</h1>
-            <p className="lead mb-4">
+            <p className="lead mb-4 text-justify">
               Transformez votre passion en carrière numérique : rejoignez notre programme de
               mentorat dédié aux femmes en reconversion professionnelle pour un avenir brillant et
               connecté. Nous aidons les femmes à réussir leur reconversion professionnelle grâce à

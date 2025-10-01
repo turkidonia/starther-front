@@ -44,7 +44,7 @@ function TemoinSection() {
               allowFullScreen
             />
           </div>
-          <p className="temoignage-texte">{t.text}</p>
+          <p className="temoignage-texte text-justify">{t.text}</p>
         </div>
       ))}
     </section>

@@ -21,6 +21,7 @@
   color: #FF7E33; /* orange vif */
   font-size: 28px;
   margin-bottom: 30px;
+  font-weight: bold;
 }
 
 /* Form group */
@@ -36,11 +37,13 @@
   font-weight: 500;
   color: #000000;
   font-family: 'Raleway', sans-serif;
+  font-weight: bold;
 }
 
 /* Inputs texte et mot de passe */
 .form-group input[type="email"],
-.form-group input[type="password"] {
+.form-group input[type="password"],
+.form-group input[type="text"] {
   width: 100%;
   padding: 12px;
   border-radius: 12px;
@@ -84,9 +87,8 @@
 }
 
 .radio-group input[type="radio"]:checked + label {
-  background-color: #FF7E33;
-  color: #FFD8C2;
-  box-shadow: 0 4px 10px rgba(255, 126, 51, 0.3);
+  background-color: #FFD8C2;
+  color: #000000;
 }
 
 .radio-group label:hover {

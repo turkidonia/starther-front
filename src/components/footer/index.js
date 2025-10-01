@@ -28,16 +28,11 @@ function Footer() {
 
   return (
     <footer className="footer text-light py-5">
-      <div className="container">
-        <div className="row text-center text-md-start">
+      <div className="container-fluid">
+        <div className="row text-center text-md-start gx-5">
           {/* Logo */}
-          <div className="col-md-3 mb-4">
-            <img
-              src={logo}
-              alt="Logo du site"
-              className="img-fluid"
-              style={{ maxWidth: '200px' }}
-            />
+          <div className="col-md-3 mb-4 text-center">
+            <img src={logo} alt="Logo du site" className="img-fluid main-footer-logo" />
           </div>
 
           {/* Info */}
@@ -56,7 +51,7 @@ function Footer() {
           {/* Partenaires */}
           <div className="col-md-3 mb-4">
             <h4 className="footer-subtitle">Nos Partenaires</h4>
-            <div className="d-flex justify-content-center justify-content-md-start flex-wrap partners-logos">
+            <div className="d-flex justify-content-center justify-content-md-start partners-logos">
               <a
                 href="https://www.sap.com/france/index.html"
                 target="_blank"
@@ -74,7 +69,7 @@ function Footer() {
           </div>
 
           {/* Liens */}
-          <div className="col-md-3 mb-4">
+          <div className="col-md-3 mb-5">
             <h4 className="footer-subtitle">Liens Utiles</h4>
             <ul className="list-unstyled">
               <li>
