@@ -15,7 +15,7 @@ function EspaceMentor({ user }) {
       <section className="mentor-profile">
         <div className="mentor-info">
           <div>
-            <h1 className="mentor-name">Profil Mentor</h1>
+            <h1 className="mentor-name">Page Mentor</h1>
             <p className="mentor-bio">
               Bienvenue <strong>{user?.username || 'Mentor'}</strong> 👋 Cet espace vous permet de
               partager vos vidéos, guider les mentorées et enrichir la plateforme{' '}

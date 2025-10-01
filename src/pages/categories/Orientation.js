@@ -19,7 +19,7 @@ function Orientation({ user }) {
     },
     {
       id: 3,
-      url: 'https://www.youtube.com/embed/mgmVOuLgFB0',
+      url: 'https://www.youtube.com/embed/_0qO2zfdmmA?si=NT4h0XuPLHEmwxDa',
       title: 'Orientation 3'
     },
     {

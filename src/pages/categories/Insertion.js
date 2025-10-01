@@ -10,12 +10,12 @@ function Insertion({ user }) {
     {
       id: 1,
       title: 'Insertion 1',
-      url: 'https://www.youtube.com/embed/48rz8udZBmQ'
+      url: 'https://www.youtube.com/embed/8-ErnwLswVw?si=aSPmTyeyFpwZjNcT'
     },
     {
       id: 2,
       title: 'Insertion 2',
-      url: 'https://www.youtube.com/embed/7sxpKhIbr0E'
+      url: 'https://www.youtube.com/embed/7sxpKhIbr0E?si=IL0LZpfJ__0vDRH8'
     },
     {
       id: 3,

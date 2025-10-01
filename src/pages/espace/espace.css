@@ -82,7 +82,7 @@ form:hover {
 form h2 {
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #4b2cb0; /* violet START HER */
+  color: #FF7E33; 
   font-size: 1.8rem;
   font-weight: 700;
 }
@@ -129,8 +129,8 @@ form textarea {
 form button {
   width: 100%;
   padding: 0.75rem;
-  background: #4b2cb0;
-  color: white;
+  background: #FF7E33;
+  color: #FFFFFF;
   font-weight: 600;
   border: none;
   border-radius: 10px;
