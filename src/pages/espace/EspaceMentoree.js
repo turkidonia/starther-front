@@ -13,7 +13,7 @@ function EspaceMentoree({ user }) {
 
       <div className="espace-links">
         <Link to="/formation" className="espace-btn">
-          📚 Formations
+          📚 Formation
         </Link>
         <Link to="/orientation" className="espace-btn">
           🎯 Orientation

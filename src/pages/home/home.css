@@ -259,7 +259,6 @@ body {
   transform: translateY(20px);
   animation: fadeInUp 1s forwards 0.3s;
 }
-
 @keyframes fadeInUp {
   to {
     opacity: 1;

@@ -227,3 +227,17 @@ form p.success {
   text-align: left;
 }
 
+/* Mobile : boutons en colonne */
+@media (max-width: 650px) {
+  .espace-links {
+    flex-direction: column;   /* les boutons passent les uns sous les autres */
+    align-items: center;
+    gap: 12px;
+  }
+
+  .espace-btn {
+    width: 100%;              /* bouton prend toute la largeur dispo */
+    max-width: 280px;         /* limite pour ne pas être trop large */
+    text-align: center;
+  }
+}

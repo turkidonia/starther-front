@@ -90,3 +90,24 @@
   transform: scale(1.1) translateY(-2px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
+@media (max-width: 650px) {
+  .video-grid {
+    grid-template-columns: 1fr; /* une seule colonne */
+    gap: 2rem;
+    padding: 0 30px; /* espace vertical entre les vidéos */
+  }
+  .video-wrapper {
+    margin: 0 auto;  /* centre la vidéo */
+  }
+   .video-wrapper iframe {
+    height: 250px; /* hauteur réduite pour petits écrans */
+  }
+   .page-title {
+    font-size: 2rem;
+  }
+
+  .page-description {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+}
