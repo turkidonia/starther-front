@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "npx webpack-dev-server --mode development",
+    "build": "npm run dist",
     "dist": "npx webpack --mode production --progress=profile",
     "lint": "eslint ."
   },
