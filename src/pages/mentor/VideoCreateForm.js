@@ -5,8 +5,6 @@ function VideoCreateForm({ user }) {
   const [url, setUrl] = useState('');
   const [description, setDescription] = useState('');
   const [duration, setDuration] = useState('');
-  const [author, setAuthor] = useState('');
-  const [publisher, setPublisher] = useState('');
   const [serviceId, setServiceId] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -29,50 +27,71 @@ function VideoCreateForm({ user }) {
     }
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!title || !url || !description || !duration || !author || !publisher || !serviceId) {
+    if (!title || !url || !description || !duration || !serviceId) {
       setError('Tous les champs sont obligatoires');
       setSuccess('');
       return;
     }
 
-    const videoData = {
-      title,
-      url,
-      description,
-      duration: parseInt(duration, 10), // radix ajouté
-      author: user.email, //author
-      publisher,
-      serviceId
-    };
+    const durationInt = parseInt(duration, 10);
+    const serviceIdInt = parseInt(serviceId, 10);
 
-    fetch('http://localhost:8081/public/v1/videos/', {
-      method: 'POST',
-      credentials: 'include',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(videoData)
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error('Erreur lors de la création de la vidéo');
-        return res.json();
-      })
-      .then(() => {
-        setSuccess('Vidéo créée avec succès !');
-        setError('');
-        setTitle('');
-        setUrl('');
-        setDescription('');
-        setDuration('');
-        setAuthor('');
-        setPublisher('');
-        setServiceId('');
-      })
-      .catch((err) => {
-        setError(err.message);
-        setSuccess('');
+    if (Number.isNaN(durationInt) || Number.isNaN(serviceIdInt)) {
+      setError('Veuillez remplir correctement tous les champs numériques');
+      setSuccess('');
+      return;
+    }
+
+    const videoData = {
+      title: title.trim(),
+      url: url.trim(),
+      description: description.trim(),
+      duration: durationInt,
+      author: user.email, // automatiquement l'email du mentor
+      serviceId: serviceIdInt,
+      utilisateurId: user.id // id du mentor
+    };
+    console.log('Envoi au backend :', JSON.stringify(videoData));
+
+    try {
+      const res = await fetch('http://localhost:8081/public/v1/videos/', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(videoData)
       });
+
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`Erreur lors de la création de la vidéo: ${text}`);
+      }
+
+      // Parser JSON seulement si présent et valide
+      const text = await res.text();
+      let data = {};
+      try {
+        data = JSON.parse(text);
+        console.log('Vidéo créée :', data);
+      } catch {
+        console.warn('Réponse non-JSON ou vide:', text);
+      }
+
+      setSuccess(`Vidéo "${data.title || title}" créée avec succès !`);
+
+      setSuccess('Vidéo créée avec succès !');
+      setError('');
+      setTitle('');
+      setUrl('');
+      setDescription('');
+      setDuration('');
+      setServiceId('');
+    } catch (err) {
+      setError(err.message);
+      setSuccess('');
+    }
   };
 
   return (
@@ -98,7 +117,11 @@ function VideoCreateForm({ user }) {
 
       <div>
         <label htmlFor="description">Description :</label>
-        <textarea value={description} onChange={(e) => setDescription(e.target.value)} required />
+        <textarea
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
       </div>
 
       <div>
@@ -113,30 +136,12 @@ function VideoCreateForm({ user }) {
       </div>
 
       <div>
-        <label htmlFor="auteur">Auteur :</label>
-        <input
-          id="auteur"
-          type="text"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          required
-        />
-      </div>
-
-      <div>
-        <label htmlFor="publisher">Publisher :</label>
-        <input
-          id="publisher"
-          type="text"
-          value={publisher}
-          onChange={(e) => setPublisher(e.target.value)}
-          required
-        />
-      </div>
-
-      <div>
         <label htmlFor="service">Service :</label>
-        <select value={serviceId} onChange={(e) => setServiceId(e.target.value)} required>
+        <select
+          value={serviceId}
+          onChange={(e) => setServiceId(e.target.value)}
+          required
+        >
           <option value="">--Choisir un service--</option>
           {services.map((s) => (
             <option key={s.id} value={s.id}>
