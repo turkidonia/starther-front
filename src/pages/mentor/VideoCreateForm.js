@@ -117,11 +117,7 @@ function VideoCreateForm({ user }) {
 
       <div>
         <label htmlFor="description">Description :</label>
-        <textarea
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          required
-        />
+        <textarea value={description} onChange={(e) => setDescription(e.target.value)} required />
       </div>
 
       <div>
@@ -137,11 +133,7 @@ function VideoCreateForm({ user }) {
 
       <div>
         <label htmlFor="service">Service :</label>
-        <select
-          value={serviceId}
-          onChange={(e) => setServiceId(e.target.value)}
-          required
-        >
+        <select value={serviceId} onChange={(e) => setServiceId(e.target.value)} required>
           <option value="">--Choisir un service--</option>
           {services.map((s) => (
             <option key={s.id} value={s.id}>

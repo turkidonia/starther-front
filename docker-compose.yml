@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+  # Service MySQL local (uniquement pour développement)
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Dandoun1983@
+      MYSQL_DATABASE: db_vod_dev
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Dandoun1983@
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    deploy:
+      replicas: 0
+    # Ne démarre que si profil local
+    condition: ${SPRING_PROFILES_ACTIVE} == "local"
+
+  # Backend Spring Boot
+  backend:
+    build: "/mnt/c/Users/belho/OneDrive/Bureau/JAVA DESCODEUSES/vod"
+    container_name: starther_backend
+    ports:
+      - "8080:8081"
+    env_file:
+      - .env
+    environment:
+      - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+      - DATABASE_URL_PROD=${DATABASE_URL_PROD}
+      - DATABASE_USERNAME_PROD=${DATABASE_USERNAME_PROD}
+      - DATABASE_PASSWORD_PROD=${DATABASE_PASSWORD_PROD}
+      - APP_URL=${APP_URL}
+      - JWT_SECRET=${JWT_SECRET}
+    depends_on:
+      - mysql  # Si local, ignoré pour Aiven
+
+  # Frontend React
+  frontend:
+    build: .
+    container_name: starther_frontend
+    ports:
+      - "9090:80"
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data: {}

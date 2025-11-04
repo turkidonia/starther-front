@@ -10,8 +10,8 @@ function Register() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [username, setUsername] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [firstname, setFirstname] = useState('');
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
   const [phone, setPhone] = useState('');
   const [gender, setGender] = useState('');
   const [isMentored, setIsMentored] = useState(true); // true = mentorée, false = mentor
@@ -41,15 +41,20 @@ function Register() {
     }
 
     const registerForm = {
+      name,
+      surname,
       email,
       password,
       username,
-      firstname,
-      lastname,
       phone,
       gender,
       isMentored
     };
+    console.log('=== REGISTER FORM ===');
+    console.log('registerForm:', registerForm);
+    console.log('isMentored type:', typeof registerForm.isMentored);
+    console.log('isMentored value:', registerForm.isMentored);
+    console.log('=== END FORM ===');
 
     try {
       const response = await axios.post(`${apiUrl}/public/v1/auth/subscribe`, registerForm);
@@ -82,6 +87,7 @@ function Register() {
           <label htmlFor="email">Email :</label>
           <input
             id="email"
+            data-testid="email-input"
             type="email"
             placeholder="Entrez votre email"
             value={email}
@@ -95,6 +101,7 @@ function Register() {
           <label htmlFor="password">Mot de passe :</label>
           <input
             id="password"
+            data-testid="password-input"
             type="password"
             placeholder="Choisissez un mot de passe"
             value={password}
@@ -108,6 +115,7 @@ function Register() {
           <label htmlFor="confirmPassword">Confirmer le mot de passe :</label>
           <input
             id="confirmPassword"
+            data-testid="confirmPassword-input"
             type="password"
             placeholder="Confirmez votre mot de passe"
             value={confirmPassword}
@@ -121,6 +129,7 @@ function Register() {
           <label htmlFor="username">Username :</label>
           <input
             id="username"
+            data-testid="username-input"
             type="text"
             placeholder="Choisissez un username"
             value={username}
@@ -131,26 +140,28 @@ function Register() {
 
         {/* Nom */}
         <div className="form-group">
-          <label htmlFor="lastname">Nom :</label>
+          <label htmlFor="name">Nom :</label>
           <input
-            id="lastname"
+            id="name"
+            data-testid="name-input"
             type="text"
             placeholder="Nom"
-            value={lastname}
-            onChange={(e) => setLastname(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
 
         {/* Prénom */}
         <div className="form-group">
-          <label htmlFor="firstname">Prénom :</label>
+          <label htmlFor="surname">Prénom :</label>
           <input
-            id="firstname"
+            id="surname"
+            data-testid="surname-input"
             type="text"
             placeholder="Prénom"
-            value={firstname}
-            onChange={(e) => setFirstname(e.target.value)}
+            value={surname}
+            onChange={(e) => setSurname(e.target.value)}
             required
           />
         </div>
@@ -160,6 +171,7 @@ function Register() {
           <label htmlFor="phone">Téléphone :</label>
           <input
             id="phone"
+            data-testid="phone-input"
             type="text"
             placeholder="Téléphone"
             value={phone}
@@ -194,32 +206,42 @@ function Register() {
           </div>
         </div>
 
+        {/* Profil : Mentor ou Mentorée */}
         <div className="form-group">
           <p>Je suis :</p>
           <div className="radio-group">
             <input
               type="radio"
               id="mentor"
-              name="isMentored"
-              value="false"
+              name="profileType"
               checked={isMentored === false}
-              onChange={() => setIsMentored(false)}
+              onChange={() => {
+                console.log('Clicked Mentor - setting to false');
+                setIsMentored(false);
+              }}
             />
             <label htmlFor="mentor">Mentor</label>
 
             <input
               type="radio"
               id="mentoree"
-              name="isMentored"
-              value="true"
+              name="profileType"
               checked={isMentored === true}
-              onChange={() => setIsMentored(true)}
+              onChange={() => {
+                console.log('Clicked Mentorée - setting to true');
+                setIsMentored(true);
+              }}
+              defaultChecked // ← force l’affichage comme sélectionné par défaut
             />
             <label htmlFor="mentoree">Mentorée</label>
           </div>
         </div>
 
-        {error && <p className="error-msg">{error}</p>}
+        {error && (
+          <p className="error-msg" data-testid="password-error">
+            {error}
+          </p>
+        )}
         {success && <p className="success-msg">{success}</p>}
 
         <button type="submit" className="btn-login">
